@@ -8,32 +8,32 @@ import math
 # theta_z = float(input('Enter rotation about z-axis:')) * math.pi / 180
 
 xt , yt, zt = 0, 0, 0
-theta_x = 30 * math.pi / 180
-theta_y = 30 * math.pi / 180
-theta_z = 30 * math.pi / 180
+t_x = 30 * math.pi / 180
+t_y = 30 * math.pi / 180
+t_z = 30 * math.pi / 180
 coor = [2,3,0]
 
-rotation_x = [ [ 1,0,0],
-[0 , math.cos(theta_x) , -math.sin(theta_x)],
-[0 , math.sin(theta_x) , math.cos(theta_x)],]
+r_x = [ [ 1,0,0],
+[0 , math.cos(t_x) , -math.sin(t_x)],
+[0 , math.sin(t_x) , math.cos(t_x)],]
 
-rotation_y = [ [math.cos(theta_y) ,0,math.sin(theta_y)],
+r_y = [ [math.cos(t_y) ,0,math.sin(t_y)],
 [0 , 1 , 0],
-[-math.sin(theta_y) , 0 , math.cos(theta_y)],]
+[-math.sin(t_y) , 0 , math.cos(t_y)],]
 
-rotation_z = [ [ math.cos(theta_z), -math.sin(theta_z),0],
-[math.sin(theta_z) , math.cos(theta_z) , 0],
+r_z = [ [ math.cos(t_z), -math.sin(t_z),0],
+[math.sin(t_z) , math.cos(t_z) , 0],
 [0 , 0 , 1],]
 
-rotation_x = np.array(rotation_x)
-rotation_y = np.array(rotation_y)
-rotation_z = np.array(rotation_z)
+r_x = np.array(r_x)
+r_y = np.array(r_y)
+r_z = np.array(r_z)
 
-rotation = ((rotation_x @ rotation_y) @ rotation_z)
+r = ((r_x @ r_y) @ r_z)
 
-transformation_matrix = [[rotation[0][0] , rotation[0][1],rotation[0][2],xt],
-[rotation[1][0] , rotation[1][1],rotation[1][2],yt],
-[rotation[2][0] , rotation[2][1],rotation[2][2],zt],
+transformation_matrix = [[r[0][0] , r[0][1],r[0][2],xt],
+[r[1][0] , r[1][1],r[1][2],yt],
+[r[2][0] , r[2][1],r[2][2],zt],
 [0 ,0 ,0 ,1]]
 
 coor.append(1.0)
